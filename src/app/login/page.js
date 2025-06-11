@@ -2,7 +2,7 @@
 
 import './styles/page.css'; // Import the CSS file
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { loginUser } from './components/script';
 import { useRouter } from 'next/navigation';
 import { setCookie } from 'cookies-next';
@@ -15,7 +15,199 @@ export default function LoginPage() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [isChecking, setIsChecking] = useState(true);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isVideoTransitioning, setIsVideoTransitioning] = useState(false);
+  const videoRef = useRef(null);
   const router = useRouter();
+  
+  // Array of video sources
+  const videoSources = [
+    '/videos/1.mp4',
+    '/videos/2.mp4',
+    '/videos/3.mp4',
+    '/videos/4.mp4',
+    '/videos/5.mp4'
+  ];
+  
+  // Array of overlay content for each video
+  const videoOverlayContent = [
+    {
+      title: "Welcome to 6 October University",
+      text: "Your gateway to academic excellence"
+    },
+    {
+      title: "Student Resources",
+      text: "Access our libraries, labs and online learning platforms"
+    },
+    {
+      title: "Campus Life",
+      text: "Join clubs, activities and events to enrich your university experience"
+    },
+    {
+      title: "Academic Programs",
+      text: "Discover our diverse range of undergraduate and graduate programs"
+    },
+    {
+      title: "Career Development",
+      text: "Prepare for your future with internships and career counseling services"
+    }
+  ];
+  
+  // Function to handle video transition
+  const handleVideoTransition = () => {
+    if (!isVideoTransitioning) {
+      setIsVideoTransitioning(true);
+      setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videoSources.length);
+      
+      // Reset transitioning flag after transition completes
+      setTimeout(() => {
+        setIsVideoTransitioning(false);
+      }, 500);
+    }
+  };
+  
+  // Fallback timer to check video progress and detect end
+  useEffect(() => {
+    let progressTimer;
+    const checkVideoProgress = () => {
+      const video = videoRef.current;
+      if (video && video.duration > 0 && !isVideoTransitioning) {
+        // If video is within 0.5 seconds of ending, consider it ended
+        if (video.currentTime > 0 && video.duration - video.currentTime < 0.5) {
+          handleVideoTransition();
+        }
+      }
+    };
+    
+    if (videoRef.current) {
+      // Check every 1 second
+      progressTimer = setInterval(checkVideoProgress, 1000);
+    }
+    
+    return () => {
+      if (progressTimer) clearInterval(progressTimer);
+    };
+  }, [videoSources.length, isVideoTransitioning]);
+  
+  // Handle video ended event to play the next video
+  useEffect(() => {
+    const handleVideoEnded = () => {
+      handleVideoTransition();
+    };
+    
+    // Additional handler for timeupdate event to check if video is at the end
+    const handleTimeUpdate = () => {
+      const video = videoRef.current;
+      if (video && video.duration > 0 && !isVideoTransitioning) {
+        // If video is at 99% of its duration, consider it ended
+        if (video.currentTime / video.duration > 0.99) {
+          handleVideoTransition();
+        }
+      }
+    };
+    
+    const videoElement = videoRef.current;
+    if (videoElement) {
+      videoElement.addEventListener('ended', handleVideoEnded);
+      videoElement.addEventListener('timeupdate', handleTimeUpdate);
+      
+      // Initial play
+      videoElement.play().catch(error => {
+        console.error("Initial video play failed:", error);
+        // Some browsers require user interaction before playing video
+        // In this case, we can handle it gracefully
+        if (error.name === 'NotAllowedError') {
+          // We can add a play button or other alternative here if needed
+          console.log("Autoplay not allowed. Waiting for user interaction.");
+        }
+      });
+      
+      return () => {
+        videoElement.removeEventListener('ended', handleVideoEnded);
+        videoElement.removeEventListener('timeupdate', handleTimeUpdate);
+      };
+    }
+  }, [videoSources.length, isVideoTransitioning]);
+
+  // Update video source when currentVideoIndex changes
+  useEffect(() => {
+    if (videoRef.current) {
+      // Use directly set source attribute instead of src property
+      const videoElement = videoRef.current;
+      
+      // Create and append new source element
+      const source = document.createElement('source');
+      source.src = videoSources[currentVideoIndex];
+      source.type = 'video/mp4';
+      
+      // Preload the video before showing it
+      const nextVideo = document.createElement('video');
+      nextVideo.style.display = 'none';
+      nextVideo.src = videoSources[currentVideoIndex];
+      nextVideo.preload = 'auto';
+      
+      nextVideo.onloadeddata = () => {
+        // Remove previous source elements
+        while (videoElement.firstChild) {
+          videoElement.removeChild(videoElement.firstChild);
+        }
+        
+        // Add the new source
+        videoElement.appendChild(source);
+        
+        // Reset and load
+        videoElement.load();
+        videoElement.play().catch(error => {
+          console.error("Video play failed:", error);
+        });
+        
+        // Remove the preload element
+        if (nextVideo.parentNode) {
+          nextVideo.parentNode.removeChild(nextVideo);
+        }
+      };
+      
+      // Add the preload video to the DOM temporarily
+      document.body.appendChild(nextVideo);
+      
+      return () => {
+        // Clean up preload video if component unmounts
+        if (nextVideo.parentNode) {
+          nextVideo.parentNode.removeChild(nextVideo);
+        }
+      };
+    }
+  }, [currentVideoIndex]);
+  
+  // Add additional event listener to ensure video plays
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (videoElement) {
+      const ensureVideoPlays = () => {
+        if (videoElement.paused) {
+          videoElement.play().catch(err => console.error("Failed to ensure video plays:", err));
+        }
+      };
+      
+      // Try to ensure video plays when document becomes visible
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") {
+          ensureVideoPlays();
+        }
+      });
+      
+      // Try to play video every 2 seconds if it's paused
+      const playTimer = setInterval(() => {
+        if (videoElement.paused && !isVideoTransitioning) {
+          ensureVideoPlays();
+        }
+      }, 2000);
+      
+      return () => {
+        clearInterval(playTimer);
+      };
+    }
+  }, [isVideoTransitioning]);
   
   // Check if user is already logged in
   useEffect(() => {
@@ -238,13 +430,60 @@ export default function LoginPage() {
       </div>
       
       <div className="login-image-section">
-        <Image 
-          src="/images/university-campus.jpg" 
-          alt="University Campus" 
-          width={700} 
-          height={900} 
-          className="campus-image"
-        />
+        <video 
+          ref={videoRef}
+          className="campus-video"
+          muted
+          autoPlay
+          playsInline
+          loop={false}
+          preload="auto"
+          onEnded={handleVideoTransition}
+          onError={(e) => {
+            console.error("Video error:", e);
+            // Try to recover by moving to next video after error
+            setTimeout(() => handleVideoTransition(), 2000);
+          }}
+          style={{ opacity: isVideoTransitioning ? 0.5 : 1, transition: "opacity 0.5s ease" }}
+        >
+          <source src={videoSources[currentVideoIndex]} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <div className="video-fullOverlay"></div>
+        
+        <div className="video-overlay">
+          <h2>{videoOverlayContent[currentVideoIndex].title}</h2>
+          <p>{videoOverlayContent[currentVideoIndex].text}</p>
+          
+          <div className="video-navigation">
+            <button 
+              className="nav-button"
+              onClick={() => setCurrentVideoIndex((prevIndex) => 
+                prevIndex === 0 ? videoSources.length - 1 : prevIndex - 1
+              )}
+            >
+              &lt;
+            </button>
+            <div className="video-indicators">
+              {videoSources.map((_, index) => (
+                <span 
+                  key={index} 
+                  className={`video-indicator ${index === currentVideoIndex ? 'active' : ''}`}
+                  onClick={() => setCurrentVideoIndex(index)}
+                ></span>
+              ))}
+            </div>
+            <button 
+              className="nav-button"
+              onClick={() => setCurrentVideoIndex((prevIndex) => 
+                (prevIndex + 1) % videoSources.length
+              )}
+            >
+              &gt;
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
