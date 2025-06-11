@@ -1,0 +1,585 @@
+/* Users Management Styles */
+.users-management-container {
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+.users-info-card {
+  position: relative;
+  background: linear-gradient(165deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid rgb(0 0 0 / 15%);
+  border-radius: 32px;
+  padding: 3rem;
+  margin: 2rem 0;
+  transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  box-shadow: 
+    0 10px 30px -5px rgba(0, 0, 0, 0.1),
+    0 20px 50px -12px rgba(0, 0, 0, 0.05),
+    inset 0 0 60px rgba(255, 255, 255, 0.8);
+}
+
+.users-info-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.1), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.1), transparent 40%);
+  z-index: -1;
+}
+
+.users-info-card:hover {
+  box-shadow: 
+    0 20px 40px -5px rgba(0, 0, 0, 0.15),
+    0 30px 60px -12px rgba(0, 0, 0, 0.08),
+    inset 0 0 80px rgba(255, 255, 255, 0.9);
+}
+
+/* Card Header */
+.card-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.card-header::before {
+  content: '';
+  position: absolute;
+  bottom: -1.5rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent,
+    rgba(0, 0, 0, 0.1) 15%,
+    rgba(0, 0, 0, 0.1) 85%,
+    transparent);
+}
+
+/* Users Title */
+.users-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.title-text h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Users Badges */
+.users-badges {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.users-badge {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem 0.75rem 0.75rem;
+  background: rgba(var(--primary-color-rgb), 0.08);
+  border-radius: 12px;
+  border: 1px solid rgba(var(--primary-color-rgb), 0.12);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  flex-wrap: wrap;
+}
+
+.users-badge.total {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.users-badge.students {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.users-badge.assistants {
+  background-color: #f3e8ff;
+  color: #7e22ce;
+}
+
+.users-badge.doctors {
+  background-color: #ffedd5;
+  color: #9a3412;
+}
+
+.users-badge.admins {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.badge-icon {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  top: 0;
+  color: inherit;
+  position: relative;
+  transform: translateY(-4%);
+}
+
+.badge-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+}
+
+.badge-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-label {
+  font-size: 0.75rem;
+  color: inherit;
+  margin-bottom: 0.25rem;
+}
+
+.badge-value {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: inherit;
+}
+
+/* Right Side */
+.right-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: fit-content;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+/* Add User Button */
+.add-user-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2), 0 2px 4px -1px rgba(37, 99, 235, 0.1);
+}
+
+.add-user-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
+.add-user-btn:hover {
+  background-color: #1d4ed8;
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3), 0 4px 6px -2px rgba(37, 99, 235, 0.15);
+  transform: translateY(-1px);
+}
+
+.add-user-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px -1px rgba(37, 99, 235, 0.2);
+}
+
+/* Users List Table */
+.users-list-table {
+  margin-top: 2rem;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.table-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.users-list-table table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.users-list-table thead {
+  background-color: #f9fafb;
+}
+
+.users-list-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #4b5563;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.users-list-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.users-list-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e5e7eb;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.user-id {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* User Type Badges */
+.user-type {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.user-type.student {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.user-type.doctor {
+  background-color: #ffedd5;
+  color: #9a3412;
+}
+
+.user-type.doctor_admin {
+  background-color: #ffedd5;
+  color: #9a3412;
+}
+
+.user-type.assistant {
+  background-color: #f3e8ff;
+  color: #7e22ce;
+}
+
+.user-type.professor {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.user-type.admin {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+/* User Status Badges */
+.user-status {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.user-status.active {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.user-status.inactive {
+  background-color: #fecaca;
+  color: #b91c1c;
+}
+
+.user-status.pending {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  background-color: #f3f4f6;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+}
+
+.action-btn.edit {
+  color: #2563eb;
+}
+
+.action-btn.delete {
+  color: #dc2626;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+}
+
+.action-btn.edit:hover {
+  background-color: #dbeafe;
+}
+
+.action-btn.delete:hover {
+  background-color: #fee2e2;
+}
+
+/* Load More Button */
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
+.load-more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.load-more-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+}
+
+.load-more-btn:hover {
+  background-color: #e5e7eb;
+  color: #1f2937;
+  transform: translateY(-1px);
+}
+
+.load-more-btn:active {
+  transform: translateY(1px);
+}
+
+.load-more-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.small-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e5e7eb;
+  border-top: 2px solid #6b7280;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Search Box */
+.search-box {
+  position: relative;
+  width: 300px;
+  max-width: 100%;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.625rem 0.75rem 0.625rem 2.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  color: #1f2937;
+  transition: all 0.2s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+/* Loading State */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  gap: 1rem;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e5e7eb;
+  border-top: 3px solid #2563eb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  gap: 1rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-icon {
+  width: 48px;
+  height: 48px;
+  color: #dc2626;
+}
+
+.error-state p {
+  color: #4b5563;
+  max-width: 500px;
+}
+
+.error-state button {
+  padding: 0.625rem 1.25rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.error-state button:hover {
+  background-color: #1d4ed8;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .users-info-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .card-header {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .users-title {
+    flex-direction: column;
+  }
+  
+  .right-side {
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  
+  .add-user-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .table-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .search-box {
+    width: 100%;
+  }
+  
+  .load-more-btn {
+    width: 100%;
+  }
+} 

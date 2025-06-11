@@ -1,0 +1,495 @@
+/* Main container for the announcements page */
+.announcements-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Loading and error states */
+.loading-container,
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.error-container {
+  color: #e74c3c;
+  border: 1px solid #f7d7d7;
+}
+
+/* Grid layout for announcement cards */
+.announcements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Announcement card styling */
+.announcement-card, 
+.create-announcement-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  height: 100%;
+  min-height: 250px;
+}
+
+.announcement-card:hover, 
+.create-announcement-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Inactive announcement styling */
+.inactive-announcement {
+  opacity: 0.7;
+  border: 1px dashed #ccc;
+}
+
+/* Announcement card header */
+.announcement-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f5f7fa;
+  border-bottom: 1px solid #eaecef;
+}
+
+.announcement-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.75rem;
+  color: #4a6cf7;
+}
+
+.announcement-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Announcement content */
+.announcement-content {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.announcement-message {
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+/* Buttons preview in cards */
+.announcement-buttons-preview {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed #e2e8f0;
+}
+
+.button-count {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+/* Announcement card footer */
+.footer {
+  padding: 1rem;
+  border-top: 1px solid #eaecef;
+  background-color: #f8fafc;
+}
+
+.announcement-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+}
+
+.meta-label {
+  color: #64748b;
+  font-weight: 500;
+}
+
+.meta-value {
+  color: #334155;
+  font-weight: 600;
+}
+
+/* Status badge styling */
+.status-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.status-badge.active {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-badge.inactive {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Author info */
+.announcement-author {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.author-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.author-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* Create new announcement card */
+.create-announcement-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  text-align: center;
+}
+
+.create-announcement-card:hover {
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.create-announcement-icon {
+  width: 48px;
+  height: 48px;
+  color: #4a6cf7;
+  margin-bottom: 1.25rem;
+  padding: 8px;
+  background-color: rgba(74, 108, 247, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.create-announcement-card:hover .create-announcement-icon {
+  background-color: rgba(74, 108, 247, 0.2);
+  transform: scale(1.05);
+}
+
+.create-announcement-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+/* Button styles for announcement buttons list */
+.announcement-buttons {
+  margin: 1rem 0;
+}
+
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.announcement-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.announcement-button.primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.announcement-button.primary:hover {
+  background-color: #2563eb;
+}
+
+.announcement-button.secondary {
+  background-color: #64748b;
+  color: white;
+}
+
+.announcement-button.secondary:hover {
+  background-color: #475569;
+}
+
+.announcement-button.accent {
+  background-color: #8b5cf6;
+  color: white;
+}
+
+.announcement-button.accent:hover {
+  background-color: #7c3aed;
+}
+
+.announcement-button.outline {
+  background-color: transparent;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+}
+
+.announcement-button.outline:hover {
+  background-color: #f0f9ff;
+}
+
+/* Form styles for buttons */
+.section-label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #334155;
+  font-size: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+.buttons-list {
+  margin-bottom: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.button-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.button-item:last-child {
+  border-bottom: none;
+}
+
+.button-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.button-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.button-badge.primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.button-badge.secondary {
+  background-color: #64748b;
+  color: white;
+}
+
+.button-badge.accent {
+  background-color: #8b5cf6;
+  color: white;
+}
+
+.button-badge.outline {
+  background-color: white;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+}
+
+.button-url {
+  font-size: 0.75rem;
+  color: #64748b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 200px;
+}
+
+.button-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.icon-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-radius: 4px;
+  color: #64748b;
+  transition: all 0.2s ease;
+}
+
+.icon-button:hover {
+  background-color: #f1f5f9;
+}
+
+.icon-button.edit:hover {
+  color: #3b82f6;
+}
+
+.icon-button.delete:hover {
+  color: #ef4444;
+}
+
+.add-button-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 6px;
+  color: #3b82f6;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.add-button-btn:hover {
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+}
+
+.button-form {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group.half {
+  flex: 1;
+}
+
+select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #1e293b;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: #f8fafc;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+}
+
+select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+  background-color: #fff;
+}
+
+.button-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .announcements-container {
+    padding: 1rem;
+  }
+  
+  .announcements-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .announcement-card, 
+  .create-announcement-card {
+    min-height: 200px;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  .announcements-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+} 

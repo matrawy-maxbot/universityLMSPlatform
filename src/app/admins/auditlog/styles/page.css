@@ -1,0 +1,539 @@
+/* Audit Logs Styles */
+.audit-container {
+     padding: 2rem;
+ }
+ 
+ .audit-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 1.5rem;
+ }
+ 
+ .audit-title-section {
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+ }
+ 
+ .audit-icon {
+     width: 1.5rem;
+     height: 1.5rem;
+     color: #374151;
+ }
+ 
+ .view-toggle {
+     display: flex;
+     background-color: #f3f4f6;
+     border-radius: 0.5rem;
+     padding: 0.25rem;
+     margin-bottom: 2rem;
+     gap: 1rem;
+ }
+ 
+ .view-btn {
+     padding: 0.5rem 1.5rem;
+     border: none;
+     background: transparent;
+     cursor: pointer;
+     font-size: 0.875rem;
+     font-weight: 500;
+     color: #6b7280;
+     border-radius: 0.375rem;
+     transition: all 0.2s ease;
+ }
+ 
+ .view-btn.active {
+     background-color: white;
+     color: #111827;
+     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .view-btn:hover {
+     color: #374151;
+ }
+ 
+ .audit-filters {
+     display: flex;
+     gap: 1rem;
+ }
+
+ .audit-logs {
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
+ }
+
+ .log-item {
+     display: flex;
+     align-items: flex-start;
+     background: #dadee6;
+     border-radius: 1rem;
+     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.222);
+     padding: 1rem 1.5rem;
+     gap: 1.25rem;
+     transition: box-shadow 0.2s, background 0.2s;
+ }
+
+ .log-item:hover {
+    box-shadow: -2px 3px 10px 0 rgba(0, 0, 0, 0.23);
+    background: #d6d6d6;
+ }
+
+ .log-status {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 2.5rem;
+     height: 2.5rem;
+     border-radius: 50%;
+     flex-shrink: 0;
+ }
+
+ .log-status.success {
+     background: #e6f9ed;
+ }
+
+ .log-status.error {
+     background: #fbeaea;
+ }
+
+ .status-icon {
+     width: 1.7rem;
+     height: 1.7rem;
+ }
+
+ .log-status.success .status-icon {
+     color: #22c55e;
+     stroke: #22c55e;
+ }
+
+ .log-status.error .status-icon {
+     color: #ef4444;
+     stroke: #ef4444;
+ }
+
+ .log-content {
+     flex: 1;
+     display: flex;
+     flex-direction: column;
+     gap: 0.5rem;
+ }
+
+ .log-message {
+     font-size: 1.15rem;
+     font-weight: 500;
+     color: #374151;
+     margin-bottom: 0.25rem;
+ }
+
+ .log-meta {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     font-size: 1rem;
+     color: #6b7280;
+ }
+
+ .user-avatar {
+     width: 2rem !important;
+     height: 2rem !important;
+     border-radius: 50%;
+     object-fit: cover;
+     border: 2px solid #fff;
+     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+ }
+
+ .log-author {
+     color: #7f90b6;
+     font-weight: 600;
+ }
+
+ .log-dot {
+     color: #9ca3af;
+     font-size: 1em;
+     transform: translateY(0.15em);
+ }
+
+ .log-date {
+     color: #568ae8;
+     font-weight: 500;
+     font-size: 1em;
+ }
+
+ /* Filter/Sort Dropdowns */
+ .filter-dropdown, .sort-dropdown {
+     position: relative;
+ }
+ .dropdown-trigger {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     background: #e5e7eb;
+     border: none;
+     border-radius: 0.75rem;
+     padding: 0.75rem 2.5rem 0.75rem 1.5rem;
+     font-size: 1.15rem;
+     font-weight: 500;
+     color: #6b7280;
+     cursor: pointer;
+     box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+     transition: background 0.2s;
+ }
+ .dropdown-trigger:hover {
+     background: #f3f4f6;
+ }
+ .filter-icon, .dropdown-arrow, .sort-icon {
+     width: 1.3rem;
+     height: 1.3rem;
+     color: #9ca3af;
+ }
+ .filter-dropdown-menu {
+     display: none;
+     position: absolute;
+     top: 110%;
+     left: 0;
+     background: #fff;
+     border-radius: 0.75rem;
+     box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+     min-width: 220px;
+     z-index: 10;
+     padding: 1rem;
+ }
+ .filter-dropdown-header {
+     font-size: 1rem;
+     font-weight: 600;
+     color: #374151;
+     margin-bottom: 0.5rem;
+ }
+ .filter-dropdown-content {
+     display: flex;
+     flex-direction: column;
+     gap: 0.5rem;
+ }
+ .checkbox-item, .radio-item {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     font-size: 1rem;
+     color: #374151;
+ }
+ .status-indicator.success {
+     width: 0.75rem;
+     height: 0.75rem;
+     background: #22c55e;
+     border-radius: 50%;
+     margin-left: 0.5rem;
+ }
+ .status-indicator.error {
+     width: 0.75rem;
+     height: 0.75rem;
+     background: #ef4444;
+     border-radius: 50%;
+     margin-left: 0.5rem;
+ }
+ .radio-label {
+     color: #374151;
+     font-size: 1rem;
+ }
+
+
+
+
+
+ .custom-filter-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .custom-filter-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #e4e7e9;
+    color: #5c74ab;
+    border: none;
+    border-radius: 1.2rem;
+    padding: 0.7rem 1.7rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.07);
+    transition: background 0.2s, color 0.2s;
+  }
+  
+  .custom-filter-trigger:hover {
+    background: #d6dae4;
+    color: #1e40af;
+  }
+
+  .custom-filter-trigger:hover {
+    background: #d6dae4;
+    color: #1e40af;
+}
+
+  .custom-filter-icon, .custom-filter-arrow {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  
+  .custom-filter-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 120%;
+    min-width: 240px;
+    background: #fff;
+    border-radius: 1.2rem;
+    box-shadow: 0 8px 32px rgba(37,99,235,0.10);
+    padding: 1.2rem 1.5rem;
+    z-index: 20;
+    animation: fadeIn 0.25s;
+  }
+  
+  .custom-filter-dropdown:hover .custom-filter-menu,
+  .custom-filter-dropdown:focus-within .custom-filter-menu {
+    display: block;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  
+  .custom-filter-section {
+    margin-bottom: 1.2rem;
+  }
+  
+  .custom-filter-title {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 0.7rem;
+    letter-spacing: 0.02em;
+  }
+  
+  .custom-checkbox, .custom-radio {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 1rem;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    padding-left: 1.7rem;
+  }
+  
+  .custom-checkbox input,
+  .custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .checkmark, .radiomark {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1.1rem;
+    width: 1.1rem;
+    background: #f1f5f9;
+    border-radius: 0.4rem;
+    border: 2px solid #cdd6e7;
+    transition: background 0.2s, border 0.2s;
+  }
+  
+  .radiomark {
+    border-radius: 50%;
+  }
+  
+  .custom-checkbox input:checked ~ .checkmark {
+    background: #2563eb;
+    border-color: #2563eb;
+  }
+  
+  .custom-checkbox input:checked ~ .checkmark:after {
+    content: '';
+    position: absolute;
+    left: 0.28rem;
+    top: 0.05rem;
+    width: 0.25rem;
+    height: 0.5rem;
+    border: solid #fff;
+    border-width: 0 0.18rem 0.18rem 0;
+    transform: rotate(45deg);
+  }
+  
+  .custom-radio input:checked ~ .radiomark {
+    background: #2563eb;
+    border-color: #2563eb;
+  }
+  
+  .custom-radio input:checked ~ .radiomark:after {
+    content: '';
+    display: block;
+    margin: 0.25rem auto;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: #fff;
+  }
+  
+.custom-filter-apply {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.7rem 0;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 0.7rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.10);
+    transition: background 0.2s;
+}
+
+.custom-filter-apply:hover {
+    background: #1e40af;
+}
+
+.custom-sort-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 1rem;
+  }
+  
+  .custom-sort-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #e4e7e9;
+    color: #5c74ab;
+    border: none;
+    border-radius: 1.2rem;
+    padding: 0.7rem 1.7rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.07);
+    transition: background 0.2s, color 0.2s;
+  }
+  
+  .custom-sort-trigger:hover {
+    background: #d6dae4;
+    color: #1e40af;
+  }
+  
+  .custom-sort-icon, .custom-sort-arrow {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  
+  .custom-sort-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 120%;
+    min-width: 240px;
+    background: #fff;
+    border-radius: 1.2rem;
+    box-shadow: 0 8px 32px rgba(37,99,235,0.10);
+    padding: 1.2rem 1.5rem;
+    z-index: 20;
+    animation: fadeIn 0.25s;
+  }
+  
+  .custom-sort-dropdown:hover .custom-sort-menu,
+  .custom-sort-dropdown:focus-within .custom-sort-menu {
+    display: block;
+  }
+  
+  .custom-sort-section {
+    margin-bottom: 1.2rem;
+  }
+  
+  .custom-sort-title {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 0.7rem;
+    letter-spacing: 0.02em;
+  }
+  
+  /* إعادة استخدام نفس ستايل الراديو من الفلتر */
+  .custom-radio {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 1rem;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    padding-left: 1.7rem;
+  }
+  
+  .custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .radiomark {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1.1rem;
+    width: 1.1rem;
+    background: #f1f5f9;
+    border-radius: 50%;
+    border: 2px solid #cdd6e7;
+    transition: background 0.2s, border 0.2s;
+  }
+  
+  .custom-radio input:checked ~ .radiomark {
+    background: #2563eb;
+    border-color: #2563eb;
+  }
+  
+  .custom-radio input:checked ~ .radiomark:after {
+    content: '';
+    display: block;
+    margin: 0.25rem auto;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: #fff;
+  }
+  
+  .custom-sort-apply {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.7rem 0;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 0.7rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.10);
+    transition: background 0.2s;
+  }
+  
+  .custom-sort-apply:hover {
+    background: #1e40af;
+  }
+
+
+
+
+
+
+  

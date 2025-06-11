@@ -1,0 +1,311 @@
+.studentInfoContainer {
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.studentHeader {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+  position: relative;
+}
+
+.studentName {
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  color: #343a40;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-family: 'Tajawal', Arial, sans-serif;
+}
+
+.studentId {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.headerStatus {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+}
+
+.infoContent {
+  padding: 0 1.5rem;
+}
+
+.infoSection {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.infoSection:last-child {
+  border-bottom: none;
+}
+
+.sectionTitle {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  color: #495057;
+  font-weight: 600;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.infoLabel {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+}
+
+.infoValue {
+  font-size: 1rem;
+  color: #212529;
+}
+
+.courseCode {
+  font-family: monospace;
+  font-weight: 600;
+  color: #0366d6;
+}
+
+.prerequisitesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.prerequisiteItem {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #e9ecef;
+  font-family: monospace;
+  color: #495057;
+}
+
+.prerequisiteItem:last-child {
+  border-bottom: none;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+}
+
+.approveButton,
+.rejectButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1;
+}
+
+.approveButton {
+  background-color: #28a745;
+  color: white;
+  border: none;
+}
+
+.approveButton:hover {
+  background-color: #218838;
+}
+
+.rejectButton {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+
+.rejectButton:hover {
+  background-color: #c82333;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.statusPending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.statusApproved {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.statusRejected {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.noDataMessage {
+  padding: 3rem;
+  text-align: center;
+  color: #6c757d;
+}
+
+/* Modal styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.modalContent {
+  background-color: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modalTitle {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #212529;
+}
+
+.modalBody {
+  margin-bottom: 1.5rem;
+}
+
+.reasonLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.reasonTextarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.cancelButton,
+.confirmButton {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.cancelButton {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  color: #212529;
+}
+
+.cancelButton:hover {
+  background-color: #e9ecef;
+}
+
+.confirmButton {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+}
+
+.confirmButton:hover {
+  background-color: #c82333;
+}
+
+/* Success message overlay */
+.successOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 20;
+  animation: fadeInOut 3s forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.successApproved {
+  color: #28a745;
+}
+
+.successRejected {
+  color: #dc3545;
+}
+
+.successIcon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.successIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.successMessage {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .actionButtons {
+    flex-direction: column;
+  }
+} 

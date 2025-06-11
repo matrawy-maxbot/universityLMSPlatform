@@ -1,0 +1,272 @@
+/* Status Modal Styles (Error & Success) */
+.status-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.25s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.status-modal {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1);
+  width: 550px;
+  max-width: 92%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transform-origin: center;
+}
+
+.status-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  background-color: #f8f9fa;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.status-modal-header h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.status-modal-header h3::before {
+  content: '';
+  position: absolute;
+  width: 20%;
+  height: 3px;
+  bottom: -8px;
+  left: 0;
+  visibility: visible;
+  transition: all 0.3s ease;
+}
+
+/* Custom styles for error header */
+.status-modal[data-type="error"] .status-modal-header h3::before {
+  background-color: #dc3545;
+}
+
+/* Custom styles for success header */
+.status-modal[data-type="success"] .status-modal-header h3::before {
+  background-color: #28a745;
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #6c757d;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 50%;
+}
+
+.close-modal:hover {
+  color: #343a40;
+  background-color: rgba(108, 117, 125, 0.1);
+  transform: rotate(90deg);
+}
+
+.status-modal-body {
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  overflow-y: auto;
+  min-height: 120px;
+}
+
+.status-modal-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.04);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+}
+
+/* Icon colors */
+.status-modal[data-type="error"] .status-modal-icon {
+  color: #dc3545;
+}
+
+.status-modal[data-type="success"] .status-modal-icon {
+  color: #28a745;
+}
+
+.status-modal-message {
+  flex-grow: 1;
+}
+
+.status-modal-message p {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #343a40;
+  font-weight: 500;
+}
+
+.status-modal-details {
+  margin-top: 16px;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Error details styles */
+.status-modal[data-type="error"] .status-modal-details {
+  background-color: rgba(220, 53, 69, 0.05);
+  border-left: 3px solid #dc3545;
+}
+
+/* Success details styles */
+.status-modal[data-type="success"] .status-modal-details {
+  background-color: rgba(40, 167, 69, 0.05);
+  border-left: 3px solid #28a745;
+}
+
+.status-modal-details h4 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: #495057;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.status-modal-details pre {
+  margin: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  color: #495057;
+  line-height: 1.45;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 8px 0;
+  background-color: transparent;
+}
+
+.status-modal-footer {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  border-top-width: 1px;
+  border-top-style: solid;
+  background-color: #f8f9fa;
+}
+
+.status-modal-button {
+  padding: 10px 22px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.status-modal-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.status-modal-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Error button style */
+.status-modal[data-type="error"] .status-modal-button {
+  background-color: #dc3545;
+  background-image: linear-gradient(to bottom right, #e24c59, #c42333);
+}
+
+.status-modal[data-type="error"] .status-modal-button:hover {
+  background-image: linear-gradient(to bottom right, #e05c68, #b82030);
+}
+
+/* Success button style */
+.status-modal[data-type="success"] .status-modal-button {
+  background-color: #28a745;
+  background-image: linear-gradient(to bottom right, #34b54e, #218838);
+}
+
+.status-modal[data-type="success"] .status-modal-button:hover {
+  background-image: linear-gradient(to bottom right, #3cc058, #1b7430);
+}
+
+/* Status modal borders */
+.status-modal[data-type="error"] .status-modal-header,
+.status-modal[data-type="error"] .status-modal-footer {
+  border-color: #f5c6cb;
+}
+
+.status-modal[data-type="success"] .status-modal-header,
+.status-modal[data-type="success"] .status-modal-footer {
+  border-color: #c3e6cb;
+}
+
+/* Add a subtle glow effect for modals */
+.status-modal[data-type="error"] {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(220, 53, 69, 0.1);
+}
+
+.status-modal[data-type="success"] {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(40, 167, 69, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-30px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+} 

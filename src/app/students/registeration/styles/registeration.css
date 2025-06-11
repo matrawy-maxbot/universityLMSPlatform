@@ -1,0 +1,114 @@
+/* Add styles for the unregister button */
+.unregister-course-btn {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-left: 10px;
+}
+
+.unregister-course-btn:hover {
+  background-color: #f5222d;
+}
+
+.unregister-course-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Make sure registered course items display the delete button properly */
+.registered-course-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 1px solid #eee;
+}
+
+.registered-course-item .course-info {
+  flex: 1;
+}
+
+.registered-course-item h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+}
+
+.registered-course-item .course-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.registered-course-item .course-code,
+.registered-course-item .course-hours {
+  background-color: #e6f7ff;
+  color: #1890ff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.registered-course-item .course-status {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.registered-course-item .course-status.confirmed {
+  background-color: #f6ffed;
+  color: #52c41a;
+}
+
+.registered-course-item .course-status.pending {
+  background-color: #fffbe6;
+  color: #faad14;
+}
+
+/* Warning icon in unregister dialog */
+.warning-icon {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.warning-icon svg {
+  width: 60px;
+  height: 60px;
+  color: #faad14;
+}
+
+/* Error message in dialog */
+.dialog-error {
+  color: #f5222d;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #fff2f0;
+  border: 1px solid #ffccc7;
+  border-radius: 4px;
+}
+
+/* Danger button */
+.confirm-btn.danger {
+  background-color: #ff4d4f;
+}
+
+.confirm-btn.danger:hover {
+  background-color: #f5222d;
+}
+
+.confirm-btn.danger:disabled,
+.cancel-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+} 

@@ -1,0 +1,1585 @@
+.author-info {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     font-size: 0.875rem;
+ }
+ 
+ .author-name {
+     color: #61748e;
+     font-weight: 500;
+ }
+ 
+ .created-at {
+     color: #3b76d6;
+     font-weight: 500;
+ }
+ 
+ .assignment-status {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+ }
+ 
+ .status-badge {
+     font-size: 0.875rem;
+     font-weight: 500;
+ }
+ 
+ .status-badge.active {
+     color: #dc2626;
+ }
+ 
+ .status-badge.submitted {
+     color: #ca8a04;
+ }
+ 
+ .status-badge.completed {
+     color: #16a34a;
+ }
+ 
+ .status-badge.missing {
+     color: #6b7280;
+ }
+ 
+ .time-left, .finished {
+     position: absolute;
+     display: flex;
+     width: fit-content;
+     align-items: center;
+     gap: 0.5rem;
+     color: #be9800;
+     font-size: 0.875rem;
+     flex-direction: column;
+     flex-wrap: nowrap;
+     justify-content: center;
+     right: 0;
+     top: 50%;
+     transform: translateY(-50%);
+     padding: 0 1.5rem;
+     width: 150px;
+     text-align: center;
+ }
+ 
+ .time-left.active-time {
+     color: #8b4137;
+ }
+ 
+ .time-left.active-time svg {
+     fill: #8b4137;
+ }
+ 
+ .time-left svg {
+     fill: #866b00;
+ }
+ 
+ .finished svg {
+     color: #6b7280;
+ }
+ 
+ .finished {
+     color: #6b7280;
+ }
+ 
+ .time-left svg, .finished svg {
+     width: 2rem;
+     opacity: 0.7;
+ }
+ 
+ .time-left .time-left-text, .finished .time-left-text {
+     font-weight: 600;
+ }
+ 
+ .dot-separator {
+     color: #94a3b8;
+     transform: translateY(0.15rem);
+ }
+ 
+ .status-badge.active + .assignment-meta::before {
+     content: "";
+     position: absolute;
+     left: 0;
+     top: 0;
+     height: 100%;
+     width: 4px;
+     background: linear-gradient(to bottom, #dc2626 30%, transparent);
+     border-top-left-radius: 0.75rem;
+     border-bottom-left-radius: 0.75rem;
+ }
+ 
+ @keyframes progress {
+     from {
+         width: 0;
+     }
+     to {
+         width: var(--progress);
+     }
+ }
+ 
+ .assignment-card:has(.status-badge.active)::after {
+     content: "";
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     height: 3px;
+     background-color: rgb(0 0 0 / 62%);
+     border-radius: 10px;
+     --progress: calc(var(--data-progress, 60) * 1%);
+     width: var(--progress);
+     animation: progress 1s ease-out;
+ }
+
+ .author-avatar {
+     width: 1.75rem;
+     height: 1.75rem;
+     border-radius: 50%;
+ }
+ 
+ .assignment-meta {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+ }
+ 
+ .assignment-author {
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+ }
+ 
+ .assignment-title {
+     font-size: 1.1rem;
+     color: #1f2937;
+     margin-bottom: 1rem;
+     font-weight: 500;
+ }
+ 
+ .assignment-title svg {
+     height: 1.3rem;
+     padding: 0 0.25rem;
+     margin-right: 0.4rem;
+     transform: translateY(0.25rem);
+ }
+ 
+ .assignment-card {
+     position: relative;
+     background: #e7e9eb;
+     border-radius: 0.75rem;
+     padding: 1.25rem;
+     padding-right: 7rem;
+     margin-bottom: 1rem;
+     border: 1px solid #dfe1e6;
+     box-shadow: -3px 4px 15px rgb(0 0 0 / 15%);
+     overflow: hidden;
+     cursor: pointer;
+ }
+ 
+ .course-header-title {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     color: #374966;
+     font-size: 1.25rem;
+     margin-bottom: 1.5rem;
+ }
+ 
+ .course-header-title-quiz {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     color: #374966;
+     font-size: 1.25rem;
+     margin-bottom: 1.5rem;
+ }
+ 
+ .course-header-title span {
+     color: #848a93;
+ }
+ 
+ .course-header-title svg {
+     width: 1.5rem;
+     height: 1.5rem;
+     color: #64748b;
+     fill: #64748b;
+ }
+ 
+ .course-section {
+     background: #ffffff;
+     border-radius: 1rem;
+     padding: 1.5rem;
+     margin-bottom: 2rem;
+     box-shadow: -1px 1px 15px rgb(0 0 0 / 20%);
+ }
+ 
+ .assignments-container {
+     padding: 2rem;
+ }
+
+ .course-card {
+     background: #ffffff;
+     border-radius: 1rem;
+     padding: 1.5rem;
+     box-shadow: -2px 2px 15px rgb(0 0 0 / 15%);
+     border: 1px solid #e5e7eb;
+ }
+ 
+ .course-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+     margin-bottom: 1rem;
+ }
+ 
+ .course-title {
+     font-size: 1.25rem;
+     font-weight: 600;
+     color: #1f2937;
+ }
+ 
+ .course-code {
+     color: #6b7280;
+     font-size: 0.875rem;
+     margin-left: 0.5rem;
+ }
+ 
+ .course-badges {
+     display: flex;
+     gap: 1.25rem;
+     margin-top: 1.5rem;
+ }
+ 
+ .course-badge {
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+     padding: 0.75rem 1.25rem;
+     background: rgba(var(--primary-color-rgb), 0.08);
+     border-radius: 12px;
+     border: 1px solid rgba(var(--primary-color-rgb), 0.12);
+     transition: transform 0.3s ease, background-color 0.3s ease;
+ }
+ 
+ .course-badge:hover {
+     transform: translateY(-2px);
+     background: rgba(var(--primary-color-rgb), 0.12);
+ }
+ 
+ .course-badge .badge-icon {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 32px;
+     height: 32px;
+     color: var(--primary-color);
+ }
+ 
+ .course-badge .badge-icon svg {
+     width: 20px;
+     height: 20px;
+ }
+ 
+ .course-badge .badge-content {
+     display: flex;
+     flex-direction: column;
+ }
+ 
+ .course-badge .badge-label {
+     font-size: 0.75rem;
+     color: var(--text-color-light);
+     margin-bottom: 0.25rem;
+ }
+ 
+ .course-badge .badge-value {
+     font-size: 0.875rem;
+     font-weight: 600;
+     color: var(--text-color);
+ }
+ 
+ .students-badge {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+     margin-top: 1.5rem;
+     padding: 1rem 1.5rem;
+     background: linear-gradient(135deg, var(--primary-color), rgba(var(--primary-color-rgb), 0.8));
+     border-radius: 16px;
+     transition: all 0.3s ease;
+ }
+ 
+ .students-badge:hover {
+     transform: translateX(4px);
+     box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.2);
+ }
+ 
+ .students-badge .badge-icon {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     width: 48px;
+     height: 48px;
+     background: rgba(255, 255, 255, 0.9);
+     border-radius: 12px;
+     color: var(--primary-color);
+ }
+ 
+ .students-badge .badge-icon svg {
+     width: 28px;
+     height: 28px;
+ }
+ 
+ .students-badge .badge-content {
+     display: flex;
+     flex-direction: column;
+ }
+ 
+ .students-badge .badge-label {
+     font-size: 0.875rem;
+     color: rgba(255, 255, 255, 0.9);
+     margin-bottom: 0.25rem;
+ }
+ 
+ .students-badge .badge-value {
+     font-size: 1.25rem;
+     font-weight: 600;
+     color: #fff;
+ }
+
+ .course-footer {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+ 
+ .course-meta {
+     display: flex;
+     flex-direction: column;
+ }
+ 
+ .hours {
+     font-weight: 600;
+     color: #1f2937;
+     font-size: 0.875rem;
+ }
+ 
+ .class-type {
+     color: #6b7280;
+     font-size: 0.75rem;
+ }
+ 
+ .visit-btn {
+     background-color: #1f2937;
+     color: white;
+     padding: 0.5rem 1rem;
+     border-radius: 0.5rem;
+     font-size: 0.875rem;
+     border: none;
+     cursor: pointer;
+     transition: background-color 0.2s;
+ }
+ 
+ .visit-btn:hover {
+     background-color: #374151;
+ }
+ 
+ .page-title {
+     font-size: 1.5rem;
+     font-weight: 600;
+     color: #1f2937;
+ }
+ 
+ .hidden {
+     display: none !important;
+ }
+ 
+ .courses-container {
+     padding: 2rem;
+ }
+ 
+ .courses-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+     gap: 1.5rem;
+     margin-top: 1.5rem;
+ }
+
+ /* Quizzes Styles */
+.quizzes-container {
+     padding: 2rem;
+ }
+ 
+ .teacher-quizzes-container {
+     padding: 2rem;
+ }
+ 
+ .quizzes-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 2rem;
+ }
+ 
+ .quizzes-title-section {
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+ }
+ 
+ .quizzes-icon {
+     width: 24px;
+     height: 24px;
+     color: #4B5563;
+ }
+ 
+ .quizzes-actions {
+     display: flex;
+     gap: 0.5rem;
+ }
+ 
+ .quizzes-actions .action-btn {
+     padding: 0.5rem 1.5rem;
+     border-radius: 0.375rem;
+     font-size: 0.875rem;
+     font-weight: 500;
+     background: #F3F4F6;
+     color: #4B5563;
+     border: none;
+     cursor: pointer;
+     transition: all 0.2s ease;
+ }
+ 
+ .quizzes-actions .action-btn:hover {
+     background: #E5E7EB;
+ }
+ 
+ .quizzes-actions .action-btn.preview {
+     background: #F3F4F6;
+     color: #4B5563;
+ }
+ 
+ .quizzes-actions .action-btn.inbox {
+     background: #ffffff;
+     color: #4B5563;
+ }
+ 
+ .quizzes-list {
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
+ }
+ 
+ .quiz-item {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 1.25rem;
+     background: #ffffff;
+     border-radius: 0.5rem;
+     border: 1px solid #E5E7EB;
+     transition: all 0.2s ease;
+ }
+ 
+ .quiz-item:hover {
+     border-color: #D1D5DB;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+ }
+ 
+ .quiz-info {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+ }
+ 
+ .quiz-icon {
+     width: 40px;
+     height: 40px;
+     padding: 0.5rem;
+     border-radius: 0.375rem;
+     background: #F3F4F6;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+ 
+ .quiz-icon svg {
+     width: 24px;
+     height: 24px;
+     color: #4B5563;
+ }
+ 
+ .quiz-details {
+     display: flex;
+     flex-direction: column;
+     gap: 0.25rem;
+ }
+ 
+ .quiz-title {
+     font-size: 1rem;
+     font-weight: 600;
+     color: #111827;
+     margin: 0;
+ }
+ 
+ .quiz-meta {
+     display: flex;
+     align-items: center;
+     gap: 1rem;
+     color: #6B7280;
+     font-size: 0.875rem;
+ }
+ 
+ .quiz-created {
+     color: #4B5563;
+ }
+ 
+ .quiz-status {
+     font-weight: 500;
+ }
+ 
+ .quiz-status.active {
+     color: #059669;
+ }
+ 
+ .quiz-status.postponed {
+     color: #D97706;
+ }
+ 
+ .quiz-status.finished {
+     color: #6B7280;
+ }
+ 
+ .quiz-students {
+     display: flex;
+     align-items: center;
+     gap: 0.25rem;
+ }
+ 
+ .students-count {
+     color: #111827;
+     font-weight: 600;
+ }
+ 
+ .quiz-status-indicator {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     color: #6B7280;
+     font-size: 0.875rem;
+ }
+ 
+ .quiz-status-indicator .status-icon {
+     width: 16px;
+     height: 16px;
+ }
+ 
+ .quiz-item.active .quiz-status-indicator {
+     color: #059669;
+ }
+ 
+ .quiz-item.active .status-icon {
+     color: #059669;
+ }
+ 
+ .quiz-item.postponed .quiz-status-indicator {
+     color: #D97706;
+ }
+ 
+ .quiz-item.postponed .status-icon {
+     color: #D97706;
+ }
+ 
+ .quiz-item.finished .quiz-status-indicator {
+     color: #6B7280;
+ }
+ 
+ .quiz-item.finished .status-icon {
+     color: #6B7280;
+ }
+ 
+ /* Quiz Styles */
+ .quiz-card {
+     background-color: #f8fafc;
+     border-radius: 0.5rem;
+     padding: 1rem 1.25rem;
+     margin-bottom: 1rem;
+     border: 1px solid #e5e7eb;
+     box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.06);
+     cursor: pointer;
+     position: relative;
+     overflow: hidden;
+     transition: border-color 0.2s ease, box-shadow 0.2s ease;
+     display: flex;
+     flex-direction: column;
+     gap: 0.75rem;
+ }
+ 
+ .quiz-card:hover {
+     border-color: #d1d5db;
+     box-shadow: 0 4px 6px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.08);
+ }
+ 
+ .quiz-title-row {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     gap: 0.75rem;
+ }
+ 
+ .quiz-title {
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+     font-size: 1rem;
+     font-weight: 500;
+     color: #1f2937;
+     margin: 0;
+ }
+ 
+ .quiz-title svg {
+     width: 1.5rem;
+     height: 1.5rem;
+     color: #6b7280;
+     flex-shrink: 0;
+ }
+ 
+ .quiz-meta {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     color: #6b7280;
+     font-size: 0.875rem;
+ }
+ 
+ .quiz-author {
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+ }
+ 
+ .quiz-author .author-avatar {
+     width: 1.5rem;
+     height: 1.5rem;
+     border-radius: 50%;
+ }
+ 
+ .quiz-author .author-info {
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+ }
+ 
+ .quiz-author .author-name {
+     color: #4b5563;
+     font-weight: 500;
+ }
+ 
+ .quiz-author .created-at {
+     color: #6b7280;
+     font-size: 0.8rem;
+ }
+ 
+ .quiz-card .time-left,
+ .quiz-card .finished {
+     position: static;
+     transform: none;
+     padding: 0;
+     width: auto;
+     text-align: right;
+     display: flex;
+     align-items: center;
+     gap: 0.5rem;
+     font-size: 0.875rem;
+ }
+ 
+ .quiz-card .time-left {
+     color: #6b7280;
+ }
+ 
+ .quiz-card .time-left.active-time {
+     color: #c81e1e;
+ }
+ 
+ .quiz-card .time-left.active-time svg {
+     fill: #c81e1e;
+ }
+ 
+ .quiz-card .finished {
+     color: #6b7280;
+ }
+ 
+ .quiz-card .time-left svg,
+ .quiz-card .finished svg {
+     width: 1.25rem;
+     height: 1.25rem;
+     opacity: 0.8;
+     fill: currentColor;
+ }
+ 
+ .quiz-card .time-left-text {
+     font-weight: 500;
+ }
+ 
+ .quiz-card.status-active::after {
+     content: "";
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     height: 4px;
+     background: linear-gradient(90deg, #3b82f6, #60a5fa);
+     border-bottom-left-radius: 0.5rem;
+     border-top-right-radius: 4px;
+     width: 0;
+     background-size: 200% 100%;
+     width: var(--progress);
+     animation: quizProgress 1s ease-out forwards;
+ }
+ 
+ @keyframes quizProgress {
+     from { width: 0; }
+     to { width: var(--quiz-progress, 60%); }
+ }
+ 
+ .teacher-quiz-dialog .quiz-dialog-section {
+     margin-bottom: 1.5rem;
+ }
+ 
+ .teacher-quiz-dialog .quiz-dialog-section h3 {
+     color: #334155;
+     font-size: 1.1rem;
+     font-weight: 600;
+     margin-bottom: 0.75rem;
+     border-left: 3px solid #3b82f6;
+     padding-left: 0.5rem;
+ }
+ 
+ .teacher-quiz-dialog .info-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+     gap: 0.5rem 1rem;
+ }
+ 
+ .teacher-quiz-dialog .info-item {
+     font-size: 0.9rem;
+     color: #475569;
+ }
+ 
+ .teacher-quiz-dialog .info-item .info-label {
+     font-weight: 500;
+     color: #1e293b;
+     margin-right: 0.5rem;
+ }
+ 
+ .teacher-quiz-dialog .info-item.full-width {
+     grid-column: 1 / -1;
+ }
+ 
+ .teacher-quiz-dialog .description-text {
+     color: #475569;
+     line-height: 1.6;
+     white-space: pre-wrap;
+ }
+ 
+ .teacher-quiz-dialog .google-form-link {
+     display: inline-flex;
+     align-items: center;
+     gap: 0.5rem;
+     color: #673AB7;
+     text-decoration: none;
+     font-weight: 500;
+     padding: 0.25rem 0.5rem;
+     border-radius: 0.25rem;
+     transition: background-color 0.2s ease;
+ }
+ 
+ .teacher-quiz-dialog .google-form-link:hover {
+     background-color: rgba(103, 58, 183, 0.1);
+ }
+ 
+ .teacher-quiz-dialog .quiz-file-list .file-item {
+     background-color: #f8fafc;
+ }
+ 
+ .teacher-quiz-dialog .status-badge.dialog-status {
+     font-size: 0.8rem;
+ }
+
+ /* --- Quiz Dialog Base Styles --- */
+ /* Reusing assignment overlay style name, ensure it's defined */
+ .assignment-dialog-overlay {
+   position: fixed;
+   top: 0; left: 0; right: 0; bottom: 0;
+   background-color: rgba(0, 0, 0, 0.6);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 1000; /* Ensure it's above page content */
+   backdrop-filter: blur(4px);
+   padding: 1rem;
+ }
+
+ .teacher-quiz-dialog {
+   background: white;
+   border-radius: 0.75rem;
+   width: 100%;
+   max-width: 700px; /* Adjust as needed */
+   max-height: 90vh;
+   overflow-y: auto;
+   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+   padding: 1.5rem 2rem;
+   position: relative;
+   animation: dialogFadeIn 0.3s ease-out; /* Reuse fade-in animation */
+ }
+
+ /* Ensure close button style is available */
+ .dialog-close-btn {
+   position: absolute;
+   top: 0.75rem;
+   right: 0.75rem;
+   background: #f1f5f9;
+   border: none;
+   font-size: 1.25rem;
+   line-height: 1;
+   cursor: pointer;
+   color: #64748b;
+   width: 2rem;
+   height: 2rem;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: all 0.2s;
+   z-index: 10; /* Above dialog content */
+ }
+
+ .dialog-close-btn:hover {
+   background: #e2e8f0;
+   color: #dc2626;
+   transform: rotate(90deg);
+ }
+
+ /* Ensure basic header, content, actions styles are defined */
+ .teacher-quiz-dialog .assignment-dialog-header { /* Reuse class name for consistency? */
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding-bottom: 1rem;
+   margin-bottom: 1.5rem;
+   border-bottom: 1px solid #e2e8f0;
+ }
+
+ .teacher-quiz-dialog .dialog-title {
+   color: #1e293b;
+   font-size: 1.3rem;
+   font-weight: 600;
+   margin: 0;
+ }
+
+ .teacher-quiz-dialog .dialog-content {
+   display: flex;
+   flex-direction: column;
+   gap: 1.5rem; /* Spacing between sections */
+ }
+
+ .teacher-quiz-dialog .dialog-actions {
+   display: flex;
+   justify-content: flex-end;
+   gap: 0.75rem;
+   margin-top: 2rem;
+   padding-top: 1.5rem;
+   border-top: 1px solid #e2e8f0;
+ }
+
+ /* Ensure button styles are available */
+ .dialog-btn { /* Copied from assignments CSS */
+   padding: 0.6rem 1.25rem;
+   border-radius: 0.375rem;
+   font-weight: 500;
+   font-size: 0.9rem;
+   cursor: pointer;
+   transition: all 0.2s;
+   border: 1px solid transparent;
+ }
+ .dialog-btn.primary { /* Copied */
+   background: #3b82f6; color: white; border-color: #3b82f6;
+ }
+ .dialog-btn.primary:hover { background: #2563eb; border-color: #2563eb; }
+ .dialog-btn.secondary { /* Copied */
+   background: white; color: #475569; border-color: #cbd5e1;
+ }
+ .dialog-btn.secondary:hover { background: #f8fafc; border-color: #94a3b8; }
+ .dialog-btn.danger { /* Copied */
+   background: #fee2e2; color: #ef4444; border-color: #ef4444;
+ }
+ .dialog-btn.danger:hover { background: #fecaca; color: #dc2626; border-color: #dc2626; }
+
+ /* Add keyframes if not present */
+ @keyframes dialogFadeIn {
+   from { opacity: 0; transform: scale(0.95); }
+   to { opacity: 1; transform: scale(1); }
+ }
+
+ /* --- End Quiz Dialog Base Styles --- */
+
+ /* --- Quiz Dialog Enhancements --- */
+
+ /* Schedule Section - Add Progress Bar */
+ .teacher-quiz-dialog .quiz-dialog-section .time-progress-container {
+   margin-top: 1rem;
+   padding-top: 1rem;
+   border-top: 1px dashed #cbd5e1;
+ }
+
+ .teacher-quiz-dialog .quiz-dialog-section .time-progress-label {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 0.5rem;
+   color: #64748b;
+   font-size: 0.85rem;
+ }
+
+ .teacher-quiz-dialog .quiz-dialog-section .time-progress {
+   width: 100%;
+   height: 0.5rem;
+   background-color: #e2e8f0;
+   border-radius: 1rem;
+   overflow: hidden;
+   margin-bottom: 0.5rem;
+ }
+
+ .teacher-quiz-dialog .quiz-dialog-section .time-progress-bar {
+   height: 100%;
+   background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+   border-radius: 1rem;
+   transition: width 0.5s ease-out;
+ }
+
+ .teacher-quiz-dialog .quiz-dialog-section .time-remaining {
+   text-align: right;
+   color: #64748b;
+   font-size: 0.85rem;
+ }
+
+ /* Attached Files Section - Ensure styles apply correctly */
+ .teacher-quiz-dialog .quiz-file-list .file-item {
+     /* Inherits base .file-item styles */
+     /* Add specific overrides if needed */
+     background-color: #f8fafc; /* Ensure consistent background */
+ }
+
+ .teacher-quiz-dialog .quiz-file-list .file-item.downloadable:hover {
+     background: #f0f9ff; /* Consistent hover */
+     border-color: #7dd3fc;
+ }
+
+ /* Ensure .no-files style is available */
+ .teacher-quiz-dialog .no-files {
+     font-style: italic;
+     color: #64748b;
+     font-size: 0.9rem;
+     padding: 0.5rem 0; /* Add some padding */
+ }
+
+ /* --- End Quiz Dialog Enhancements --- */
+
+ /* --- Unified Dialog Styles (Adopted from Assignments) --- */
+
+ /* Ensure dialog base styles match Assignments */
+ .teacher-quiz-dialog {
+   /* Base styles already defined, ensure consistency */
+   /* max-width: 700px; padding: 1.5rem 2rem; etc. */
+ }
+
+ .teacher-quiz-dialog .assignment-dialog-header {
+   /* Base styles already defined, ensure consistency */
+   /* display: flex; align-items: center; etc. */
+ }
+
+ .teacher-quiz-dialog .dialog-title {
+   /* Base styles defined */
+ }
+
+ .teacher-quiz-dialog .status-badge.dialog-status {
+     /* Styles for status badge inside dialog header */
+     font-size: 0.8rem;
+     margin-left: 1rem; /* Ensure spacing from title */
+     /* Use specific status colors defined earlier in this file */
+ }
+
+ .teacher-quiz-dialog .dialog-content {
+   /* Base styles defined */
+   /* gap: 1.75rem; */ /* Match assignment gap */
+   gap: 1.75rem;
+ }
+
+ /* Standard Section Styling (Adjusting for consistency) */
+ .teacher-quiz-dialog .quiz-dialog-section {
+   display: flex;
+   flex-direction: column;
+   gap: 0.75rem;
+ }
+
+ .teacher-quiz-dialog .quiz-dialog-section h3 {
+   color: #334155;
+   font-size: 1.1rem;
+   font-weight: 600;
+   margin: 0 0 0.25rem 0; /* Adjusted margin */
+   border-left: 3px solid #3b82f6;
+   padding-left: 0.5rem;
+ }
+
+ /* Titles for sections like Description, Files, Link */
+ .teacher-quiz-dialog .section-title-bordered {
+   color: #334155;
+   font-size: 1.1rem;
+   font-weight: 600;
+   margin: 0 0 0.5rem 0; /* Adjust margin */
+   border-left: 3px solid #3b82f6;
+   padding-left: 0.5rem;
+ }
+
+ /* Styling for Info Grids (Quiz Details & Schedule) - Keep styles for grid and items */
+ .teacher-quiz-dialog .info-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   gap: 0.75rem 1rem; /* Adjusted gap */
+   padding: 1rem; /* Add padding */
+   background-color: #f8fafc; /* Light background like assignment info */
+   border: 1px solid #e2e8f0;
+   border-radius: 0.5rem;
+ }
+
+ .teacher-quiz-dialog .info-item {
+   display: flex;
+   flex-direction: column; /* Stack label and value */
+   gap: 0.25rem;
+   font-size: 0.9rem; /* Reset base size */
+   color: #475569; /* Reset base color */
+ }
+
+ .teacher-quiz-dialog .info-item .info-label {
+   font-weight: 500;
+   color: #64748b; /* Label color */
+   font-size: 0.85rem; /* Label size */
+   margin-right: 0; /* Remove margin if stacked */
+ }
+
+ .teacher-quiz-dialog .info-item .info-value { /* Add a class in JSX if needed for the value */
+     color: #1e293b; /* Value color */
+     font-weight: 500;
+ }
+
+ .teacher-quiz-dialog .info-item.full-width {
+   grid-column: 1 / -1; 
+ }
+
+ /* Title specific to the Schedule section grid */
+ .teacher-quiz-dialog .section-grid-title {
+    color: #334155;
+    font-size: 1.1rem;
+    font-weight: 700; /* Space before the grid */
+     /* No border needed for this one */
+ }
+
+ .teacher-quiz-dialog .quiz-description-section {
+   margin: 0;
+ }
+
+ /* Progress Bar Container (inside Schedule section) */
+ .teacher-quiz-dialog .time-progress-container {
+   margin-top: 1rem;
+   padding-top: 1rem;
+   border-top: 1px dashed #cbd5e1;
+ }
+
+ .teacher-quiz-dialog .time-progress-label {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 0.5rem;
+   color: #64748b;
+   font-size: 0.85rem;
+ }
+
+ .teacher-quiz-dialog .time-progress {
+   width: 100%;
+   height: 0.5rem;
+   background-color: #e2e8f0;
+   border-radius: 1rem;
+   overflow: hidden;
+   margin-bottom: 0.5rem;
+ }
+
+ .teacher-quiz-dialog .time-progress-bar {
+   height: 100%;
+   background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+   border-radius: 1rem;
+   transition: width 0.5s ease-out;
+ }
+
+ .teacher-quiz-dialog .time-remaining {
+   text-align: right;
+   color: #64748b;
+   font-size: 0.85rem;
+ }
+
+ /* Description Styling */
+ .teacher-quiz-dialog .description-text {
+     color: #475569;
+     line-height: 1.6;
+     white-space: pre-wrap;
+     padding: 0.5rem 0; /* Add some padding */
+ }
+
+ /* Google Form Link Styling */
+ .teacher-quiz-dialog .google-form-link {
+     display: inline-flex;
+     align-items: center;
+     gap: 0.5rem;
+     color: #673AB7; /* Google Forms purple */
+     text-decoration: none;
+     font-weight: 500;
+     padding: 0.25rem 0.5rem;
+     border-radius: 0.25rem;
+     transition: background-color 0.2s ease;
+ }
+
+ .teacher-quiz-dialog .google-form-link:hover {
+     background-color: rgba(103, 58, 183, 0.1);
+ }
+
+ /* Attached Files Styling (Ensure base styles are present/correct) */
+ .teacher-quiz-dialog .quiz-file-list {
+     /* Uses .file-list base */
+ }
+
+ .teacher-quiz-dialog .no-files {
+     /* Uses .no-files base */
+ }
+
+ /* Ensure dialog actions match */
+ .teacher-quiz-dialog .dialog-actions {
+   /* Base styles defined, ensure consistency */
+ }
+
+ /* --- End Unified Dialog Styles --- */
+
+ /* START OF REPLACEMENT: Custom Block Message Modal & Confirm Dialog Styles (Copied from Assignments) */
+
+.custom-block-message-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100; /* Higher than delete confirm modal */
+  backdrop-filter: blur(3px);
+  opacity: 0; 
+  animation: fadeInOverlayBM 0.15s forwards;
+}
+
+@keyframes fadeInOverlayBM { 
+  to { opacity: 1; }
+}
+
+.custom-block-message-dialog {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 380px;
+  animation: dialogFadeInBM 0.15s ease-out; 
+  border-top: 4px solid #ccc; /* Default border color */
+}
+
+@keyframes dialogFadeInBM { 
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.custom-block-message-dialog.type-success { border-top-color: #48bb78; /* Green */ }
+.custom-block-message-dialog.type-error   { border-top-color: #f56565; /* Red */ }
+.custom-block-message-dialog.type-warning { border-top-color: #ecc94b; /* Yellow */ }
+.custom-block-message-dialog.type-info    { border-top-color: #4299e1; /* Blue */ }
+.custom-block-message-dialog.type-confirmation { border-top-color: #6b7280; /* Neutral gray for adapted confirmation */}
+
+
+.block-message-header {
+  margin-bottom: 0.75rem;
+}
+
+.block-message-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.type-success .block-message-title { color: #38a169; }
+.type-error .block-message-title   { color: #e53e3e; }
+.type-warning .block-message-title { color: #d69e2e; }
+.type-info .block-message-title    { color: #3182ce; }
+.type-confirmation .block-message-title { color: #1f2937; } 
+
+
+.block-message-content {
+  color: #4a5568;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  white-space: pre-wrap; 
+}
+
+.block-message-actions {
+  text-align: right;
+}
+
+/* Delete Confirmation Modal - specific structure from assignments */
+/* This overlay might be redundant if custom-block-message-overlay is used by delete confirm too */
+/* However, assignments had it separate, so replicating that for now. */
+.custom-confirm-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050; /* Note: assignments had 1050 for this, block message 1100. Ensure it is what you want. */
+  backdrop-filter: blur(5px);
+  opacity: 0; 
+  animation: fadeInOverlayConfirm 0.15s forwards; /* Separate animation name */
+}
+
+@keyframes fadeInOverlayConfirm { 
+  to { opacity: 1; }
+}
+
+
+.custom-confirm-dialog {
+  background: white;
+  border-radius: 0.6rem;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  animation: dialogFadeInConfirm 0.2s ease-out; /* Separate animation name */
+}
+
+@keyframes dialogFadeInConfirm { 
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+.confirm-dialog-title {
+  color: #1e293b;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.confirm-dialog-message {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.confirm-dialog-message strong {
+  color: #334155;
+  font-weight: 600;
+}
+
+.confirm-dialog-actions {
+  display: flex;
+  justify-content: center; 
+  gap: 0.75rem;
+}
+/* END OF REPLACEMENT: Custom Block Message Modal & Confirm Dialog Styles */
+
+ /* --- Base File List Styles (Add these if missing) --- */
+ .file-list {
+   display: flex;
+   flex-direction: column;
+   gap: 0.75rem;
+ }
+
+ .file-item {
+   position: relative;
+   display: flex;
+   align-items: center;
+   gap: 0.75rem;
+   padding: 0.75rem 1rem;
+   background: #f8fafc; /* Default background */
+   border-radius: 0.5rem;
+   border: 1px solid #e2e8f0;
+   transition: all 0.2s;
+ }
+
+ .file-item.downloadable {
+   cursor: pointer;
+   padding-right: 3rem; /* Space for download icon */
+ }
+
+ .file-item.downloadable:hover {
+   background: #f0f9ff;
+   border-color: #7dd3fc;
+ }
+
+ .file-info {
+   display: flex;
+   flex-direction: column;
+   gap: 0.1rem;
+   /* Prevent info from shrinking */
+   flex-grow: 1;
+   min-width: 0; /* Allow shrinking if necessary, but flex-grow takes precedence */
+ }
+
+ .file-name {
+   color: #334155;
+   font-size: 0.9rem;
+   font-weight: 500;
+   /* Prevent long names from breaking layout */
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+ }
+
+ .file-size {
+   color: #64748b;
+   font-size: 0.75rem;
+ }
+
+ .download-icon {
+   position: absolute;
+   right: 1rem;
+   top: 50%;
+   transform: translateY(-50%);
+   width: 1.25rem;
+   height: 1.25rem;
+   stroke: #3b82f6;
+   stroke-width: 1.5; /* Adjusted stroke width */
+   fill: none;
+   opacity: 0.6;
+   transition: all 0.2s;
+   flex-shrink: 0; /* Prevent icon from shrinking */
+ }
+
+ .file-item.downloadable:hover .download-icon {
+   opacity: 1;
+   transform: translateY(-50%) scale(1.1);
+ }
+
+ /* Style for the file type icon */
+ .file-item svg:not(.download-icon) {
+   width: 1.5rem;
+   height: 1.5rem;
+   fill: #64748b;
+   flex-shrink: 0; /* Prevent icon from shrinking */
+ }
+
+ /* Ensure .no-files style is available and applied if needed */
+ .no-files {
+     font-style: italic;
+     color: #64748b;
+     font-size: 0.9rem;
+     padding: 0.5rem 0;
+ }
+ /* --- End Base File List Styles --- */
+ 
+ /* --- Quiz Dialog Edit Mode Styles --- */
+ .teacher-quiz-dialog .dialog-title-input,
+ .teacher-quiz-dialog .dialog-input,
+ .teacher-quiz-dialog .dialog-textarea {
+     width: 100%;
+     padding: 0.75rem 1rem;
+     border: 1px solid #cbd5e1; /* Light gray border */
+     border-radius: 0.375rem; /* Rounded corners */
+     font-size: 0.9rem;
+     color: #1e293b; /* Dark text color */
+     background-color: #f8fafc; /* Very light gray background */
+     box-sizing: border-box;
+     transition: border-color 0.2s ease, box-shadow 0.2s ease;
+     margin-bottom: 0.5rem; /* Add some space below inputs */
+ }
+ 
+ .teacher-quiz-dialog .dialog-title-input:focus,
+ .teacher-quiz-dialog .dialog-input:focus,
+ .teacher-quiz-dialog .dialog-textarea:focus {
+     outline: none;
+     border-color: #3b82f6; /* Blue border on focus */
+     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); /* Focus ring */
+ }
+ 
+ .teacher-quiz-dialog .dialog-title-input {
+     font-size: 1.3rem; /* Match h2.dialog-title */
+     font-weight: 600; /* Match h2.dialog-title */
+     color: #1e293b;
+     margin: 0; /* Remove default margin if it was an h2 before */
+ }
+ 
+ .teacher-quiz-dialog .dialog-textarea {
+     min-height: 80px;
+     resize: vertical;
+ }
+ 
+ /* Styling for labels in edit mode grids */
+ .teacher-quiz-dialog .editor-field {
+     display: flex;
+     flex-direction: column;
+     gap: 0.25rem;
+ }
+ 
+ .teacher-quiz-dialog .info-label.editor-label {
+     font-weight: 500;
+     color: #475569; /* Label color */
+     font-size: 0.85rem; /* Label size */
+     margin-bottom: 0; /* Reset from any previous general info-label style */
+ }
+ 
+ /* File input styling in edit mode */
+ .teacher-quiz-dialog .editor-file-list {
+     display: flex;
+     flex-direction: column;
+     gap: 0.75rem;
+     margin-bottom: 1rem;
+ }
+ 
+ .teacher-quiz-dialog .editor-file-item {
+     position: relative;
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+     padding: 0.75rem 1rem;
+     background: #f8fafc;
+     border-radius: 0.5rem;
+     border: 1px solid #e2e8f0;
+ }
+ 
+ .teacher-quiz-dialog .editor-file-item .file-info {
+     flex-grow: 1;
+     min-width: 0;
+ }
+ 
+ .teacher-quiz-dialog .editor-remove-file-btn {
+     background: transparent;
+     border: none;
+     color: #94a3b8;
+     font-size: 1.5rem;
+     line-height: 1;
+     padding: 0.25rem;
+     cursor: pointer;
+     transition: color 0.2s ease;
+ }
+ 
+ .teacher-quiz-dialog .editor-remove-file-btn:hover {
+     color: #ef4444; /* Red color on hover */
+ }
+ 
+ /* Hide the default file input, style the label as a button */
+ .teacher-quiz-dialog .dialog-file-input.editor-file-input {
+     display: none;
+ }
+ 
+ .teacher-quiz-dialog .dialog-file-label.editor-file-label {
+     /* Reuses .dialog-btn.secondary styles, already defined */
+     /* Add specific styling if needed to differentiate from other secondary buttons */
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     gap: 0.5rem;
+     margin-top: 0.5rem; /* Space above the add file button if there are files */
+ }
+ 
+ .teacher-quiz-dialog .file-error-message.editor-file-error {
+     color: #ef4444; /* Red color for error messages */
+     font-size: 0.8rem;
+     margin-top: 0.5rem;
+ }
+ 
+ /* Ensure grids in edit mode also have appropriate padding if needed */
+ .teacher-quiz-dialog .info-grid.editor-grid {
+     padding: 1rem; /* Consistent padding */
+     background-color: #f8fafc;
+     border: 1px solid #e2e8f0;
+     border-radius: 0.5rem;
+ }
+ 
+ /* If info-items in edit mode contain inputs directly, ensure proper spacing */
+ .teacher-quiz-dialog .info-grid.editor-grid .info-item .dialog-input {
+     margin-bottom: 0; /* Remove bottom margin if label provides spacing via gap */
+ }
+ 
+ /* --- End Quiz Dialog Edit Mode Styles --- */
+
+ /* --- Create New Quiz Button & Dialog Styles --- */
+.create-quiz-header {
+  margin-bottom: 2rem;
+  display: flex; 
+  justify-content: flex-end; 
+}
+
+.create-quiz-btn {
+  background-color: #3b82f6; /* Same as assignments */
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3); /* Same shadow */
+}
+
+.create-quiz-btn:hover {
+  background-color: #2563eb; /* Darker blue on hover */
+}
+
+.create-quiz-btn svg {
+  /* Styles for the plus icon if specific styling is needed */
+}
+
+/* Styles for the Create Quiz Dialog Header */
+.teacher-create-quiz-dialog .create-quiz-dialog-header {
+    flex-direction: column; 
+    align-items: flex-start; 
+    justify-content: flex-start; 
+    gap: 0.25rem; 
+}
+
+.teacher-create-quiz-dialog .create-quiz-dialog-header .dialog-title {
+    margin-bottom: 0; 
+}
+
+.teacher-create-quiz-dialog .dialog-course-subtitle {
+    font-size: 0.9rem;
+    color: #64748b; 
+    font-weight: 500;
+    /* margin-left is not needed due to flex-start on header */
+}
+
+.teacher-create-quiz-dialog .course-id-display {
+    font-weight: 500; 
+    color: #2961a7; 
+    font-size: 0.9em; 
+}
+
+/* Ensure other dialog styles from .teacher-quiz-dialog apply correctly */
+.teacher-create-quiz-dialog .dialog-input,
+.teacher-create-quiz-dialog .dialog-textarea {
+    /* These should inherit from the general .dialog-input, .dialog-textarea styles already defined */
+    /* Add overrides here if create dialog needs different input styling */
+}
+
+.teacher-create-quiz-dialog .info-label.editor-label {
+    /* Should inherit general .info-label.editor-label */
+}
+
+.teacher-create-quiz-dialog .info-grid.editor-grid {
+    /* Should inherit general .info-grid.editor-grid */
+}
+ /* --- End Create New Quiz Button & Dialog Styles --- */

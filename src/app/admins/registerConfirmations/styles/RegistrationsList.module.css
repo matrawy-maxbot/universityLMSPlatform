@@ -1,0 +1,396 @@
+.registrationsListContainer {
+  width: 100%;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  color: #6c757d;
+  text-align: center;
+}
+
+.emptyIcon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  color: #adb5bd;
+}
+
+.listHeader {
+  display: grid;
+  grid-template-columns: 40px 2fr 2fr 1fr 1fr 1fr;
+  padding: 0.75rem 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  font-weight: 600;
+  color: #495057;
+}
+
+.headerSelect,
+.headerStudent,
+.headerCourse,
+.headerDate,
+.headerStatus,
+.headerActions {
+  padding: 0 0.5rem;
+}
+
+.registrationsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.registrationItem {
+  display: grid;
+  grid-template-columns: 40px 2fr 2fr 1fr 1fr 1fr;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e9ecef;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.registrationItem:hover {
+  background-color: #f8f9fa;
+}
+
+.selectedItem {
+  background-color: #e9f5ff !important;
+  border-left: 3px solid #3490dc;
+}
+
+.itemSelect,
+.itemStudent,
+.itemCourse,
+.itemDate,
+.itemStatus,
+.itemActions {
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.studentName {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* text-align: right; */
+}
+
+.studentId {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-top: 0.25rem;
+}
+
+.courseCode {
+  font-weight: 600;
+  color: #333;
+}
+
+.courseName {
+  color: #666;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* text-align: right; */
+}
+
+/* Add Arabic font support */
+.studentName[dir="rtl"], 
+.courseName[dir="rtl"] {
+  font-family: 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+}
+
+.itemDate {
+  font-size: 0.875rem;
+  color: #495057;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.statusPending {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.statusApproved {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.statusRejected {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.itemActions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.approveButton,
+.rejectButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.approveButton {
+  color: #28a745;
+}
+
+.approveButton:hover {
+  background-color: rgba(40, 167, 69, 0.1);
+}
+
+.rejectButton {
+  color: #dc3545;
+}
+
+.rejectButton:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.actionIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.actionComplete {
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+/* Status info styling */
+.statusInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.approvedInfo {
+  color: #28a745;
+  font-weight: 600;
+  cursor: help;
+}
+
+.rejectedInfo {
+  color: #dc3545;
+  font-weight: 600;
+  cursor: help;
+}
+
+/* Bulk actions */
+.bulkActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background-color: #e9f5ff;
+  border-bottom: 1px solid #b8daff;
+}
+
+.bulkCount {
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.bulkButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.bulkApproveButton,
+.bulkRejectButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.bulkApproveButton {
+  background-color: #28a745;
+  color: white;
+}
+
+.bulkApproveButton:hover {
+  background-color: #218838;
+}
+
+.bulkRejectButton {
+  background-color: #dc3545;
+  color: white;
+}
+
+.bulkRejectButton:hover {
+  background-color: #c82333;
+}
+
+/* Modal styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: white;
+  border-radius: 8px;
+  width: 95%;
+  max-width: 500px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modalTitle {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 1.25rem;
+}
+
+.modalBody {
+  margin-bottom: 1.5rem;
+}
+
+.reasonLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #495057;
+}
+
+.reasonTextarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.cancelButton,
+.confirmButton {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.cancelButton {
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  color: #495057;
+}
+
+.confirmButton {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+}
+
+.cancelButton:hover {
+  background-color: #e9ecef;
+}
+
+.confirmButton:hover {
+  background-color: #c82333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .listHeader,
+  .registrationItem {
+    grid-template-columns: 40px 1fr 1fr 1fr;
+  }
+  
+  .headerDate,
+  .headerStatus,
+  .itemDate,
+  .itemStatus {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .listHeader,
+  .registrationItem {
+    grid-template-columns: 40px 1fr 1fr;
+  }
+  
+  .headerCourse,
+  .itemCourse {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .listHeader {
+    display: none;
+  }
+  
+  .registrationItem {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .itemSelect {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+  
+  .itemStudent,
+  .itemCourse,
+  .itemDate,
+  .itemStatus,
+  .itemActions {
+    padding: 0;
+  }
+  
+  .itemDate,
+  .itemStatus {
+    display: flex;
+  }
+} 

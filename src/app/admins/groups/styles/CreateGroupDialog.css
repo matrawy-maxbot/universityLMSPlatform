@@ -1,0 +1,455 @@
+/* CreateGroupDialog.css */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dialog-content {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 700px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  direction: ltr;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  left: auto;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.dialog-content h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #1f2937;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #374151;
+  text-align: left;
+}
+
+.required-star {
+  color: #e53e3e; /* Red color for the asterisk */
+  margin-left: 0.25rem;
+}
+
+.form-group input[type="text"],
+.search-input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  background-color: #f9fafb;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-group input[type="text"]:focus,
+.search-input-field:focus {
+  border-color: #3b76d6;
+  box-shadow: 0 0 0 3px rgba(59, 118, 214, 0.2);
+  outline: none;
+  background-color: #ffffff;
+}
+
+/* Style for input field with error */
+.input-error {
+  border-color: #e53e3e !important; /* Red border for error, !important to override focus style if needed */
+  background-color: #fff5f5 !important; /* Very light red background for error field */
+}
+
+.input-error:focus {
+  border-color: #c53030 !important;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.25) !important;
+}
+
+.error-message {
+  color: #c53030; /* Darker red text for error message */
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0; /* Adjust as needed */
+  text-align: left;
+}
+
+.filter-list {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.filter-button {
+  padding: 0.6rem 1rem;
+  border: 1px solid #d1d5db;
+  background-color: #f9fafb;
+  color: #374151;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.filter-button:hover {
+  background-color: #f0f2f5;
+  border-color: #adb5bd;
+}
+
+.filter-button.active {
+  background-color: #3b76d6;
+  color: #ffffff;
+  border-color: #3b76d6;
+}
+
+.people-table-container {
+  max-height: 300px; /* Adjust as needed, this is now for the inner table scroll part */
+  overflow-y: auto;
+  /* Remove border/radius/shadow from here if .table-section handles it */
+  /* border: 1px solid #e5e7eb; */
+  /* border-radius: 0.75rem; */
+  margin-bottom: 0; /* Remove margin if padding is on .table-section */
+  /* box-shadow: 0 2px 4px rgba(0,0,0,0.05); */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+thead th {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+thead .th-student {
+  width: 40%;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e9ecef;
+  transition: background-color 0.15s ease-in-out;
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: #f1f3f5;
+}
+
+tbody td {
+  padding: 0.85rem 1rem;
+  color: #212529;
+  vertical-align: middle;
+}
+
+.student-info-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.student-avatar-img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.student-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.student-name-table {
+  font-weight: 500;
+  color: #212529;
+  font-size: 0.95rem;
+}
+
+.student-id-table {
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.3em 0.65em;
+  font-size: 0.75em;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.375rem;
+  color: #fff;
+}
+
+.status-excellent {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.status-good {
+  background-color: #e6d1f2;
+  color: #58157F;
+}
+
+.status-average {
+  background-color: #f8f9fa;
+  color: #495057;
+  border: 1px solid #dee2e6;
+}
+
+.td-select input[type="checkbox"] {
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
+}
+
+.no-data-message {
+  text-align: center;
+  padding: 1.5rem;
+  color: #6c757d;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.dialog-actions button {
+  padding: 0.7rem 1.3rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+}
+
+.create-button {
+  background-color: #0d6efd; /* Bootstrap primary blue */
+  color: #ffffff;
+  border-color: #0d6efd;
+}
+
+.create-button:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+/* Styles for the disabled create button */
+.create-button[disabled] {
+  background-color: #ced4da; /* Light grey background for disabled state */
+  border-color: #ced4da;     /* Matching border color */
+  color: #6c757d;           /* Muted text color */
+  cursor: not-allowed;       /* Indicate non-interactive state */
+  opacity: 0.65;             /* Common practice for disabled elements */
+}
+
+/* Ensure hover effects do not apply when disabled */
+.create-button[disabled]:hover {
+  background-color: #ced4da; /* Keep the disabled background color */
+  border-color: #ced4da;     /* Keep the disabled border color */
+  /* color: #6c757d; */        /* Text color remains muted */
+  /* box-shadow: none; */       /* Remove any hover box-shadow if present */
+}
+
+.cancel-button {
+  background-color: #f8f9fa;
+  color: #212529;
+  border-color: #dee2e6;
+}
+
+.cancel-button:hover {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+}
+
+.dialog-content::-webkit-scrollbar {
+  width: 8px;
+}
+.dialog-content::-webkit-scrollbar-thumb {
+  background-color: #ced4da;
+  border-radius: 4px;
+}
+.dialog-content::-webkit-scrollbar-thumb:hover {
+  background-color: #adb5bd;
+}
+
+/* Styles for two-table layout */
+.two-tables-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.table-section {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Differentiate selected people section */
+.selected-people-section {
+  background-color: #f8fafc; /* Slightly different background for the entire section card */
+  /* Or a slightly stronger border/shadow if preferred over background change */
+  /* border-color: #c3dafe; */ /* Example: A light blue border */
+  /* box-shadow: 0 6px 18px rgba(0,0,0,0.1); */
+}
+
+/* Style the header of the selected people table differently */
+.selected-people-section thead th {
+  background-color: #e2e3e6;
+  color: #3066a3;
+  border-bottom: 1px solid #cad0e3;
+}
+
+/* Optional: If you add <h3> titles above tables */
+.table-section h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Ensure table containers within sections behave well */
+.people-table-container-available,
+.people-table-container-selected {
+  max-height: 250px; /* Adjust height if padding on .table-section takes space */
+  flex-grow: 1;
+  min-height: 150px;
+}
+
+/* Styling for Add/Remove buttons within table cells */
+.action-button {
+  padding: 0.35rem 0.7rem; /* Adjusted padding */
+  font-size: 0.8rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  border: 1px solid #d1d5db;      /* Default border */
+  background-color: #f9fafb;    /* Default background */
+  color: #374151;              /* Default text color */
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.action-button:hover {
+  border-color: #adb5bd;
+  background-color: #f0f2f5;
+}
+
+.action-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 118, 214, 0.2); /* Focus ring similar to inputs */
+}
+
+.add-person-btn {
+  /* Specific styles for add button if needed - for now uses .action-button */
+  /* Example: Make it green or blue if desired */
+  /* background-color: #28a745; */
+  /* border-color: #28a745; */
+  /* color: white; */
+}
+
+/* .add-person-btn:hover { */
+  /* background-color: #218838; */
+  /* border-color: #1e7e34; */
+/* } */
+
+.remove-person-btn {
+  border-color: #e53e3e; /* Red border */
+  background-color: #fff5f5; /* Very light red background */
+  color: #c53030;      /* Darker red text */
+}
+
+.remove-person-btn:hover {
+  background-color: #fed7d7; /* Light red background on hover */
+  border-color: #c53030;
+  color: #9b2c2c;
+}
+
+/* Responsive adjustments for two-tables-layout */
+@media (max-width: 768px) { 
+  .two-tables-layout {
+    flex-direction: column;
+  }
+  .table-section {
+     margin-bottom: 1rem; /* Add some space when stacked */
+  }
+  .table-section:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+.dialog-content.dialog-content-two-tables {
+  max-width: 950px; /* Slightly increased to accommodate padding on table-sections */
+  /* background-color: #f9fafb; */ /* Example: If dialog background needs to change for contrast */
+}
+
+/* Header for Available People table - more neutral grey/silver */
+.available-people-section thead th {
+  background-color: #e8e5e5;
+  color: #495057;
+  border-bottom: 1px solid #d3d4d4; /* Standard border, moved from general thead th */
+}
+
+/* General thead th styling (structural parts) */
+thead th {
+  padding: 0.85rem 1rem; 
+  text-align: left;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  /* background-color, color, border-bottom are now set by more specific rules above */
+} 

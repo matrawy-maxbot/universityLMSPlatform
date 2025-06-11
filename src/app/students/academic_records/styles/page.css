@@ -1,0 +1,587 @@
+/* Academic Record Styles */
+.academic-record-container {
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.student-info-card {
+    background: var(--card-background-dark, #25313f);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-between;
+    height: fit-content;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 300px;
+}
+
+.student-profile {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.3rem;
+    position: relative;
+}
+
+.profile-section {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    aspect-ratio: auto;
+}
+
+.profile-image-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    object-fit: cover;
+}
+
+.graduation-cap {
+    position: absolute;
+    top: -48px;
+    left: -42px;
+    border-radius: 0;
+    padding: 0.5rem;
+    width: 126px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(0deg);
+    z-index: 2;
+}
+
+.graduation-cap img {
+    filter: drop-shadow(-1px 10px 6px rgb(0,0,0,.5));
+}
+
+.student-details {
+    flex: 1;
+    padding-top: 0.25rem;
+}
+
+.student-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+    color: #fff;
+    margin-left: .4rem;
+}
+
+.student-id {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 0.75rem;
+    margin-left: .4rem;
+}
+
+.level-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgb(255 255 255 / 90%);
+    padding: 0.3rem 1.75rem 0.35rem .45rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    color: #161c37;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.level-badge svg {
+    width: 20px;
+    height: 20px;
+    color: #a67c52;
+    fill: #a67c52;
+    display: block;
+    position: relative;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.stat-box {
+    background: rgb(143 177 176 / 15%);
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: -4px 6px 15px #0000006b;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.stat-header {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+    position: relative;
+    font-weight: 500;
+}
+
+.stat-box.advisor .stat-header {
+    white-space: nowrap;
+    font-size: .8rem;
+}
+
+.stat-header svg {
+    width: 18px;
+    height: 18px;
+    color: #d6a732;
+}
+
+.advisor-name {
+    font-size: 0.875rem;
+    color: #d9d9d9;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.stat-value {
+    display: flex;
+    align-items: baseline;
+    gap: 0;
+    justify-content: flex-end;
+}
+
+.stat-value .number {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+    transform: translate(-10px, -20px);
+}
+
+.stat-value .line {
+    height: 2.5rem;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: rotate(45deg) translate(0, 4px);
+}
+
+.stat-value .total {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.2rem;
+}
+
+.stat-content {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.gpa-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #e5b65a;
+    line-height: 1;
+}
+
+.grade {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    line-height: 1;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .academic-record-container {
+        padding: 1.5rem;
+    }
+    
+    /* .gpa-analysis-card {
+        height: 350px;
+    } */
+}
+
+@media (max-width: 992px) {
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    
+    .stat-box.advisor {
+        grid-column: span 2;
+    }
+    
+    .student-info-card,
+    .gpa-analysis-card {
+        flex-basis: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .academic-record-container {
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .student-profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-top: 2rem;
+    }
+    
+    .student-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .profile-section {
+        margin-bottom: 1rem;
+    }
+    
+    .graduation-cap {
+        top: -52px;
+        left: -44px;
+        transform: scale(1);
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .stat-box.advisor {
+        grid-column: span 1;
+    }
+    
+    .academic-record-table .semester-stats {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .academic-record-table .table-container {
+        max-height: none;
+        overflow-y: visible;
+    }
+    
+    .gpa-analysis-card .chart-container {
+        height: 220px;
+    }
+}
+
+@media (max-width: 576px) {
+    .academic-record-container {
+        padding: 0.75rem;
+    }
+    
+    .student-info-card, .gpa-analysis-card {
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+    
+    .student-name {
+        font-size: 1.1rem;
+    }
+    
+    .advisor-name {
+        font-size: 0.8rem;
+    }
+    
+    .academic-record-table .table-title {
+        font-size: 1.25rem;
+    }
+    
+    .academic-record-table .table-description {
+        font-size: 0.8rem;
+        padding: 0 0.75rem;
+    }
+    
+    .academic-record-table .semester-info {
+        padding: 0.75rem;
+    }
+    
+    .academic-record-table .semester-info h3 {
+        font-size: 1rem;
+    }
+}
+
+.gpa-analysis-card {
+    background: var(--card-background-light, #ecf0f5);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: -4px 4px 20px #00000059;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex: 1;
+    min-width: 300px;
+}
+
+.gpa-analysis-card h3 {
+    color: var(--text-color-dark, #344251);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.gpa-analysis-card .chart-container {
+    position: relative;
+    height: 170px;
+    width: 100%;
+    flex: 1;
+}
+
+.gpa-analysis-card .current-gpa {
+    position: absolute;
+    top: 80px;
+    right: 40px;
+    background: var(--card-background-dark, #1e2124);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gpa-analysis-card .current-gpa .gpa-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.gpa-analysis-card .current-gpa .gpa-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+    .gpa-analysis-card .current-gpa {
+        position: static;
+        margin-top: 1rem;
+        width: 100%;
+    }
+}
+
+.academic-record-container .academic-record-table {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    margin-top: 2rem;
+    overflow: hidden;
+    width: 100%;
+    flex-basis: 100%;
+}
+
+.academic-record-table .table-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.academic-record-table .table-description {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0 auto 2rem auto;
+}
+
+.academic-record-table .semester-section {
+    margin-bottom: 2rem;
+}
+
+.academic-record-table .semester-header {
+    margin-bottom: 1rem;
+}
+
+.academic-record-table .semester-info {
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.academic-record-table .semester-info h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.academic-record-table .semester-info h3 span {
+    color: #3b82f6;
+}
+
+.academic-record-table .semester-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.academic-record-table .semester-stats span {
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+.academic-record-table .semester-stats strong {
+    color: #1e293b;
+    margin-left: 0.25rem;
+}
+
+.academic-record-container .table-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.academic-record-container .table-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+
+.academic-record-container .table-container {
+    overflow-x: auto;
+    position: relative;
+    border-radius: 0.75rem;
+    border: 2px solid #c4d2ed;
+    max-height: calc(100vh - 250px);
+}
+
+.academic-record-container .academic-record-table table {
+    text-align: left;
+    font-size: 0.875rem;
+    width: 100%;
+    min-width: 800px;
+    border-collapse: separate;
+    border-radius: 0.75rem;
+    border-spacing: 0;
+    position: relative;
+}
+
+.academic-record-container .academic-record-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.academic-record-container .academic-record-table th {
+    background-color: #c5d0e1;
+    padding: 0.875rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #2e3a59;
+    white-space: nowrap;
+    font-size: 0.813rem;
+    letter-spacing: 0.02em;
+    border-bottom: 2px solid #bfc9d9;
+    white-space: nowrap;
+}
+
+.academic-record-container .academic-record-table td {
+    padding: 1rem 1.5rem;
+    color: #111827;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+.academic-record-container .academic-record-table td.grade-status {
+    padding: .5rem 1.5rem;
+    margin: 0.5rem 0;
+    margin-left: .35rem;
+}
+
+.academic-record-container .academic-record-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.academic-record-container .course-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.academic-record-container .course-name {
+    font-weight: 500;
+    color: #111827;
+}
+
+.academic-record-container .grade-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+.academic-record-container .grade-status.excellent {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.academic-record-container .grade-status.good {
+    background-color: #f3e8ff;
+    color: #7e22ce;
+}
+
+.academic-record-container .grade-status.pass {
+    background-color: #fff7ed;
+    color: #c2410c;
+}
+
+.academic-record-container .grade-status.fail {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.academic-record-container .academic-record-table td:first-child {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.875rem;
+    color: #374151;
+}
+
+.academic-record-container .academic-record-table tr:last-child td {
+    border-bottom: none;
+}
+
+.academic-record-container .academic-record-table .student-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222b45;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}

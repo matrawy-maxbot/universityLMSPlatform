@@ -1,0 +1,382 @@
+.tableContainer {
+  margin-top: 2rem;
+}
+
+.tableToolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.searchContainer {
+  position: relative;
+  width: 300px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  padding-right: 2.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  direction: rtl;
+  font-family: inherit;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #4285f4;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #666;
+}
+
+.bulkActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.selectedCount {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.bulkEditButton {
+  padding: 0.5rem 1rem;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: background-color 0.2s;
+}
+
+.bulkEditButton:hover {
+  background-color: #3367d6;
+}
+
+.bulkEditButton:disabled {
+  background-color: #c7c7c7;
+  cursor: not-allowed;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+.gradesTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.gradesTable th,
+.gradesTable td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  text-align: right;
+}
+
+.gradesTable th {
+  background-color: #f9f9f9;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+  user-select: none;
+}
+
+.gradesTable th:hover {
+  background-color: #eee;
+}
+
+.gradesTable tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.gradesTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.checkboxCell {
+  width: 40px;
+  text-align: center !important;
+}
+
+.nameCell {
+  min-width: 200px;
+}
+
+.gradeCell {
+  width: 100px;
+}
+
+.percentageCell {
+  width: 80px;
+}
+
+.statusCell {
+  width: 80px;
+}
+
+.actionsCell {
+  width: 150px;
+  text-align: center !important;
+}
+
+.selectedRow {
+  background-color: #e8f0fe;
+}
+
+.loadingCell {
+  padding: 2rem !important;
+  text-align: center !important;
+  color: #666;
+}
+
+.emptyCell {
+  padding: 2rem !important;
+  text-align: center !important;
+  color: #666;
+}
+
+.loadingIndicator {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.loadingDot {
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+  border-radius: 50%;
+  background-color: #4285f4;
+  animation: loadingDot 1.4s infinite ease-in-out both;
+}
+
+.loadingDot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loadingDot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes loadingDot {
+  0%, 80%, 100% { 
+    transform: scale(0);
+  }
+  40% { 
+    transform: scale(1.0);
+  }
+}
+
+.gradeInput {
+  width: 70px;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+  font-family: inherit;
+}
+
+.gradeInput:focus {
+  outline: none;
+  border-color: #4285f4;
+}
+
+.editButton,
+.saveButton,
+.cancelButton {
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  border: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s;
+}
+
+.editButton {
+  background-color: #f0f0f0;
+  color: #444;
+}
+
+.editButton:hover {
+  background-color: #e0e0e0;
+}
+
+.saveButton {
+  background-color: #4caf50;
+  color: white;
+  margin-left: 0.5rem;
+}
+
+.saveButton:hover {
+  background-color: #43a047;
+}
+
+.cancelButton {
+  background-color: #f44336;
+  color: white;
+}
+
+.cancelButton:hover {
+  background-color: #e53935;
+}
+
+.editButton:disabled,
+.saveButton:disabled,
+.cancelButton:disabled {
+  background-color: #c7c7c7;
+  cursor: not-allowed;
+}
+
+/* Grade colors */
+.gradeExcellent {
+  color: #2e7d32;
+}
+
+.gradeVeryGood {
+  color: #388e3c;
+}
+
+.gradeGood {
+  color: #689f38;
+}
+
+.gradeFair {
+  color: #afb42b;
+}
+
+.gradePass {
+  color: #fbc02d;
+}
+
+.gradeFail {
+  color: #e53935;
+}
+
+.passStatus {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.failStatus {
+  color: #e53935;
+  font-weight: 600;
+}
+
+/* Modal styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  direction: rtl;
+}
+
+.modalTitle {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.modalDescription {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.modalContent {
+  margin-bottom: 1.5rem;
+}
+
+.modalLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.modalInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.modalInput:focus {
+  outline: none;
+  border-color: #4285f4;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.modalApplyButton,
+.modalCancelButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.modalApplyButton {
+  background-color: #4285f4;
+  color: white;
+}
+
+.modalApplyButton:hover {
+  background-color: #3367d6;
+}
+
+.modalCancelButton {
+  background-color: #f0f0f0;
+  color: #444;
+}
+
+.modalCancelButton:hover {
+  background-color: #e0e0e0;
+}
+
+.modalApplyButton:disabled {
+  background-color: #c7c7c7;
+  cursor: not-allowed;
+} 
